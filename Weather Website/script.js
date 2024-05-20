@@ -19,7 +19,8 @@ fetch(url)
     console.log(data.timelines.daily[0].values.temperatureAvg);
   })
   .catch((err) => {
-    console.log(err);
+      console.log(err);
+      
   });
 
 // Path: Weather%20Website/script.js
