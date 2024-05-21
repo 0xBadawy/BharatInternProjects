@@ -9,9 +9,14 @@ locationBox.style.transform = "translateY(10px)";
 const search = document.getElementById("searchBtn");
 
 search.addEventListener("click", () => {
+  weatherBox.onclick = () => {
+    locationBox.style.display = "flex";
+    weatherBox.style.display = "none";
+  };
+
   locationBox.style.display = "none";
   weatherBox.style.display = "flex";
-  const APIKey = "";
+  const APIKey = "ae351d66e085e182fb4d94b86ff0663e";
   const city = document.getElementById("search").value;
 
   if (city === "") return;
@@ -30,7 +35,7 @@ search.addEventListener("click", () => {
 
       switch (json.weather[0].main) {
         case "Clear":
-          image.src = "images/001-cloudy.png";
+          image.src = "images/sun.png";
           break;
         case "Clouds":
           image.src = "images/001-cloudy.png";
@@ -44,7 +49,7 @@ search.addEventListener("click", () => {
         case "Thunderstorm":
           image.src = "images/010-thunderstorm.png";
           break;
-        case "Drizzle":
+        case "Sunny":
           image.src = "images/005-thunder.png";
           break;
 
@@ -53,12 +58,20 @@ search.addEventListener("click", () => {
           break;
       }
 
-      temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
       weather.innerHTML = `${json.weather[0].main}`;
       location.innerHTML = `${json.name}, ${json.sys.country}`;
-
-      description.innerHTML = `${json.weather[0].description}`;
+      temperature.innerHTML = `${parseInt(json.main.temp)}`;
       humidity.innerHTML = `${json.main.humidity}%`;
       wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
+
+      // Add transaction animation on card
+      weatherBox.style.transition = "0.6s ease-out";
+      weatherBox.style.transform = "translateY(10px)";
     });
 });
+
+onkeydown = (e) => {
+  if (e.key === "Enter") {
+    search.click();
+  }
+};
