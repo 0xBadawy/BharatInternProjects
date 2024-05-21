@@ -3,29 +3,53 @@
     <head>
         <meta charset="UTF-8">
         <title>Weather Website</title>
-        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet">
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     </head>
     <body>
         <div class="topDiv"></div>
         <div class="content">
-            <h3>This is a simple Weather Website</h3>
-            <p>form Weather of Egypt-Luxor</p>
+            <div id="locationBox" class="locationBox">
+                <div class="searchBox">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" class="searchBar" id="search"
+                        placeholder="Enter City Name">
+                    <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
+                </div>
+            </div>
 
-            <div class="weather">
-                <h1>Weather in Luxor</h1>
-                <h2>Temperature: 30°C</h2>
-                <h2>Humidity: 30%</h2>
-                <h2>Wind Speed: 30km/h</h2>
+            <div id="weatherBox" class="weatherInformation">
+                <div class="weatherBox">
+                    <img src="images/001-cloudy.png" id="weather-icon"
+                        alt="weather">
+                    <div id="temp" class="temperature">60<sup>°C</sup> </div>
+                    <div id="weather" class="weather">Sunny</div>
+                    <div id="location" class="location">New York, US</div>
+                    <br><br>
+                    <table>
+                        <tr>
+                            <td><i class="fa-solid fa-wind"></i>Wind</td>
+                            <td><i
+                                    class="fa-solid fa-temperature-low"></i>Pressure</td>
+                        </tr>
+                        <tr>
+                            <td id="Wind">10 km/h</td>
+                            <td id="humidity">10%</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
         </div>
 
         <script src="script.js"></script>
-
     </body>
 </html>
